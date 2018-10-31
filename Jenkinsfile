@@ -29,12 +29,7 @@ pipeline {
                            }
                            }
                             stage('Integration test') {
-                              agent {
-                                    docker {
-                                            reuseNode true
-                                            image 'centos:latest'
-                                           }
-                                    }
+                              agent { label 'testslave' }
                               steps {
                                 echo "Running the integration test..."
                               }
